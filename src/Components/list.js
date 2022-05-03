@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import dataJSON from '../Mocks/mock.json';
 import dataXML from '../Mocks/mock.xml';
-import JsonData, { convertXMLToJSON } from './common-utility';
+import JsonData, { convertXMLToJSON, numericObjectSort } from './common-utility';
 
 function List() {
     //state values to hold data for each API and merge the data 
@@ -27,7 +27,7 @@ function List() {
 
     return (
         <ul>
-            {overallData.sort((a,b) => (a.id - b.id)).map(val => {
+            {numericObjectSort(overallData, 'id').map(val => {
                 return <li key={val.id}>{val.id} {val.firstName} {val.lastName}</li>
             })}
         </ul>

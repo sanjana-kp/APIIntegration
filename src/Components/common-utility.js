@@ -26,3 +26,7 @@ export function convertXMLToJSON(xmlData) {
     }
     return xmlDataArray;
 }
+
+export function numericObjectSort(dataArray, property) {
+    return dataArray.sort((a,b) => (a[property] - b[property]))
+}
